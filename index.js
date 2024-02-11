@@ -9,7 +9,7 @@ const router = require('./routes/index');
 const ErrorHandler = require('./middleware/ErrorHandlingMiddleware');
 const path = require('path')
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 
 const app = express();
 // middleware that makes the server accessible by other origins
