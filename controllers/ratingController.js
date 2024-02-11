@@ -18,7 +18,7 @@ class RatingController {
         try {
             const {rate, deviceId} = req.body; // as this request must be POST, it has a body
             // 1. validate given data
-            if(!rate || rate < process.env.MIN_RATING || rate > process.env.MAX_RATING){
+            if(!rate || rate < (process.env.MIN_RATING || 1) || rate > (process.env.MAX_RATING || 5)){
                 return next(ApiError.badRequest('Wrong rate'))
             }
             const user = await User.findOne({where: {email: req.user.email}})

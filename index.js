@@ -13,7 +13,12 @@ const PORT = process.env.PORT || 10000;
 
 const app = express();
 // middleware that makes the server accessible by other origins
-app.use(cors());
+const corsOptions ={
+    origin:process.env.ORIGIN, 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 // middleware for parsing json files
 app.use(express.json());
 // middleware that enables using files in requests
